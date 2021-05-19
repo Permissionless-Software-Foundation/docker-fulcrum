@@ -1,7 +1,7 @@
 fulcrum-mainnet:
-  #build: .
-  #dockerfile: Dockerfile
-  image: mainnet_fulcrum-mainnet
+  build: .
+  dockerfile: Dockerfile
+  #image: mainnet_fulcrum-mainnet
   container_name: fulcrum-mainnet
   volumes:
     - ../../mainnet/blockchain/:/home/safeuser/blockchain
