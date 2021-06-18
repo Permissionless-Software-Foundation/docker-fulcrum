@@ -17,5 +17,5 @@ fulcrum-rest-api:
   ports:
     - 3000:3000
   links:
-    - fulcrum-mainnet
+    - fulcrum-testnet
   restart: always
