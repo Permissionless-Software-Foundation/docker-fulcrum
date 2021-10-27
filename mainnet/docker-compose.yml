@@ -4,7 +4,7 @@ fulcrum-mainnet:
   #image: mainnet_fulcrum-mainnet
   container_name: fulcrum-mainnet
   volumes:
-    - ../../mainnet/blockchain/:/home/safeuser/blockchain
+    - ../../blockchain/:/home/safeuser/blockchain
   ports:
     - 50001:50001
     - 50002:50002
@@ -15,7 +15,7 @@ fulcrum-rest-api:
   dockerfile: Dockerfile
   container_name: fulcrum-rest-api
   ports:
-    - 3000:3000
+    - 3001:3001
   links:
     - fulcrum-mainnet
   restart: always
