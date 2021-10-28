@@ -6,7 +6,7 @@ A Docker container for running a [Fulrum server](https://github.com/cculianu/Ful
 
 These instructions assume you are using Docker installed on Ubuntu 18.04.
 
-- Clone the repo: `git clone https://github.com/christroutner/docker-fulcrum && cd docker-fulcrum`
+- Clone the repo: `git clone https://github.com/Permissionless-Software-Foundation/docker-fulcrum && cd docker-fulcrum`
 - Edit the mainnet.conf or testnet.conf file to reflect your settings.
 - Download a pre-synced database from the [CashStrap page](https://fullstack.cash/cashstrap), or you can sync from genesis.
 - Edit the docker-compose.yml file to point to where the database should live.
