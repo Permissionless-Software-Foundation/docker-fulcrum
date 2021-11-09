@@ -18,7 +18,7 @@ WORKDIR /home/safeuser/fulcrum-api
 RUN npm ci
 COPY start-rest-api.sh start-rest-api.sh
 
-EXPOSE 3000
+#EXPOSE 3000
 #VOLUME /data
 
 CMD ["bash", "start-rest-api.sh"]
