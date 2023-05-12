@@ -10,12 +10,12 @@ fulcrum-mainnet:
     - 50002:50002
   restart: always
 
-#fulcrum-rest-api:
-#  build: ./rest-api
-#  dockerfile: Dockerfile
-#  container_name: fulcrum-rest-api
-#  ports:
-#    - 3001:3001
-#  links:
-#    - fulcrum-mainnet
-#  restart: always
+fulcrum-rest-api:
+  build: ./rest-api
+  dockerfile: Dockerfile
+  container_name: fulcrum-rest-api
+  ports:
+    - 3001:3001
+  links:
+    - fulcrum-mainnet
+  restart: always
