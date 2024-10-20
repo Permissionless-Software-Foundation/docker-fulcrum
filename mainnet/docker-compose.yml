@@ -1,21 +1,24 @@
-fulcrum-mainnet:
-  build: .
-  dockerfile: Dockerfile
-  #image: mainnet_fulcrum-mainnet
-  container_name: fulcrum-mainnet
-  volumes:
-    - ../../blockchain/:/home/safeuser/blockchain
-  ports:
-    - 50001:50001
-    - 50002:50002
-  restart: always
+version: '3.9'
 
-fulcrum-rest-api:
-  build: ./rest-api
-  dockerfile: Dockerfile
-  container_name: fulcrum-rest-api
-  ports:
-    - 3001:3001
-  links:
-    - fulcrum-mainnet
-  restart: always
+services:
+  fulcrum-mainnet:
+    build: .
+    #dockerfile: Dockerfile
+    #image: mainnet_fulcrum-mainnet
+    container_name: fulcrum-mainnet
+    volumes:
+      - ../../blockchain/:/home/safeuser/blockchain
+    ports:
+      - 50001:50001
+      - 50002:50002
+    restart: always
+
+  fulcrum-rest-api:
+    build: ./rest-api
+    #dockerfile: Dockerfile
+    container_name: fulcrum-rest-api
+    ports:
+      - 3001:3001
+    links:
+      - fulcrum-mainnet
+    restart: always
