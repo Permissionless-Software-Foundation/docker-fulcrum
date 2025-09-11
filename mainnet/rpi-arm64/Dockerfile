@@ -1,5 +1,5 @@
 # Start with a pre-configured Ubuntu 18.04 image.
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 # Update the OS and install any OS packages needed.
