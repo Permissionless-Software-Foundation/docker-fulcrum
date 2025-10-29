@@ -3,7 +3,7 @@ version: '3.9'
 services:
   fulcrum-mainnet:
     build: .
-    dockerfile: Dockerfile
+    #dockerfile: Dockerfile
     #image: mainnet_fulcrum-mainnet
     container_name: fulcrum-mainnet
     volumes:
@@ -15,7 +15,7 @@ services:
 
   fulcrum-rest-api:
     build: ./rest-api
-    dockerfile: Dockerfile
+    #dockerfile: Dockerfile
     container_name: fulcrum-rest-api
     ports:
       - 3001:3001
