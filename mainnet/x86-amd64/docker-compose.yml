@@ -7,7 +7,7 @@ services:
     #image: mainnet_fulcrum-mainnet
     container_name: fulcrum-mainnet
     volumes:
-      - ../../blockchain/:/home/safeuser/blockchain
+      - ../../../blockchain/:/home/safeuser/blockchain
     ports:
       - 50001:50001
       - 50002:50002
