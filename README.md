@@ -10,6 +10,7 @@ These instructions assume you are using Docker installed on a Ubuntu Linux opera
 
 - Clone the repository:
   - `git clone https://github.com/Permissionless-Software-Foundation/docker-fulcrum`
+- Create a `blockchain` directory
 - Navigate to the directory for your architecture.
 - Edit the mainnet.conf file to reflect your settings.
 - Edit the docker-compose.yml file to point to where the database should live.
