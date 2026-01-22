@@ -1,9 +1,24 @@
 # Create a REST API for the Fulcrum Electrumx server.
 
-FROM christroutner/ct-base-ubuntu
+# Start with a pre-configured Ubuntu 18.04 image.
+FROM ubuntu:18.04
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
-RUN apt-get update -y
+# Update the OS and install any OS packages needed.
+RUN apt-get update
+RUN apt-get install -y sudo git curl nano gnupg wget
+
+#Install Node and NPM
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt-get install -y nodejs build-essential
+
+# Create a safeuser
+RUN useradd -ms /bin/bash safeuser
+RUN adduser safeuser sudo
+
+# Set password to 'abcd8765'. Change value below if you want a different password
+RUN echo safeuser:abcd8765 | chpasswd
 
 #Set the working directory to be the home directory
 WORKDIR /home/safeuser
