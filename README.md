@@ -1,15 +1,19 @@
 # docker-fulcrum
 
-A Docker container for running a [Fulrum server](https://github.com/cculianu/Fulcrum) and interfacing to it using a standard REST API.
+A Docker container for running a [Fulcrum server](https://github.com/cculianu/Fulcrum) and interfacing to it using a standard REST API.
 
-## Install
+Fulcrum is an indexer. An indexer is like a search engine, which crawls the blockchain and *indexes* the raw data into a database. The Full Node only tracks transactions. It does not track important data like address balances, UTXOs, and transaction histories. The Fulcrum indexer exists to track those things. It implements the [Electrum protocol](https://electrumx.readthedocs.io/en/latest/protocol.html).
 
-These instructions assume you are using Docker installed on Ubuntu 18.04.
+## Installation
 
-- Clone the repo: `git clone https://github.com/Permissionless-Software-Foundation/docker-fulcrum && cd docker-fulcrum`
-- Edit the mainnet.conf or testnet.conf file to reflect your settings.
-- Download a pre-synced database from the [CashStrap page](https://fullstack.cash/cashstrap), or you can sync from genesis.
+These instructions assume you are using Docker installed on a Ubuntu Linux operating system.
+
+- Clone the repository:
+  - `git clone https://github.com/Permissionless-Software-Foundation/docker-fulcrum`
+- Navigate to the directory for your architecture.
+- Edit the mainnet.conf file to reflect your settings.
 - Edit the docker-compose.yml file to point to where the database should live.
+- Create a directory called `certs` in the same directory as the docker-compose.yml file.
 
 ### Create SSL certificate
 
@@ -24,6 +28,7 @@ Follow these instructions to generate your own self signed certificate. You'll
 end up with two files: server.crt is the public key and certificate. server.key
 is the private key.
 
+- `cd certs` - Enter the newly created *certs* directory.
 - `sudo apt update`
 - `sudo apt install openssl`
 - `openssl genrsa -des3 -out server.pass.key 2048`
@@ -33,13 +38,11 @@ is the private key.
 - `openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt`
 - `rm server.csr`
 
-In the same directory as the `docker-compose.yml` file, create a directory called `certs`. Move the `server.*` files into the `certs` directory.
-
 ### Build the Docker Container
 
 - Update the `docker-compose.yml` file with the path to where you want to store the blockchain data.
-- `docker-compose build`
-- `docker-compose up -d`
+- `docker compose build`
+- `docker compose up -d`
 
 ## License
 
